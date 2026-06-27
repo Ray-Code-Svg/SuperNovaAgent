@@ -1,0 +1,67 @@
+{
+  "package_id": "supernova.office.docx.openxml",
+  "runtime": ".NET/C#",
+  "sdk": "DocumentFormat.OpenXml",
+  "sdk_version": "3.5.1",
+  "capabilities": [
+    {
+      "capability_id": "office.docx.read_text",
+      "input": "docx path",
+      "output": "paragraphs, headings, tables, styles, validation errors",
+      "side_effect": "read",
+      "receipt": "OfficeReceipt"
+    },
+    {
+      "capability_id": "office.docx.create",
+      "input": "output docx path + text",
+      "output": "artifact hash + validation errors",
+      "side_effect": "write",
+      "receipt": "OfficeReceipt",
+      "rollback": "delete artifact or tx rollback"
+    },
+    {
+      "capability_id": "office.docx.rewrite_save_as",
+      "input": "source docx path + output docx path + replacement text",
+      "output": "artifact hash + source hash preserve + validation errors",
+      "side_effect": "write new artifact",
+      "receipt": "OfficeReceipt",
+      "rollback": "delete artifact or tx rollback"
+    },
+    {
+      "capability_id": "office.docx.rewrite_preview",
+      "input": "source docx path + replacement text",
+      "output": "diff summary",
+      "side_effect": "none",
+      "receipt": "OfficeReceipt"
+    },
+    {
+      "capability_id": "office.docx.rewrite_in_place_preview",
+      "input": "source docx path + replacement text",
+      "output": "diff summary + approval requirement",
+      "side_effect": "none",
+      "receipt": "OfficeReceipt"
+    },
+    {
+      "capability_id": "office.docx.rewrite_in_place",
+      "input": "source docx path + replacement text",
+      "output": "source hash before/after + validation errors",
+      "side_effect": "source mutation",
+      "receipt": "OfficeReceipt",
+      "rollback": "tx rollback"
+    },
+    {
+      "capability_id": "office.docx.diff_summary",
+      "input": "before docx path + after docx path",
+      "output": "paragraph-level diff summary",
+      "side_effect": "read",
+      "receipt": "OfficeReceipt"
+    },
+    {
+      "capability_id": "office.docx.validate",
+      "input": "docx path",
+      "output": "OpenXML validation errors",
+      "side_effect": "read",
+      "receipt": "OfficeReceipt"
+    }
+  ]
+}

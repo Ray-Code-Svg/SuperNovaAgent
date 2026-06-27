@@ -1,0 +1,29 @@
+[package]
+name = "product_runtime"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+name = "product_runtime"
+path = "src/lib.rs"
+
+[[bin]]
+name = "supernova-product-runtime"
+path = "src/main.rs"
+
+[dependencies]
+axum = "0.7"
+local_runtime_protocol = { path = "../local_runtime_protocol" }
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+supernova-process-kernel = { path = "../../process_kernel" }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "signal", "sync", "time"] }
+tokio-stream = "0.1"
+tower-http = { version = "0.5", features = ["cors"] }
+uuid = { version = "1", features = ["v4"] }
+
+[dev-dependencies]
+tower = { version = "0.5", features = ["util"] }

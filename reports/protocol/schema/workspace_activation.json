@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WorkspaceActivation",
+  "type": "object",
+  "required": [
+    "workspace"
+  ],
+  "properties": {
+    "recent_active_container_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "workspace": {
+      "$ref": "#/definitions/WorkspaceRecord"
+    }
+  },
+  "definitions": {
+    "WorkspaceRecord": {
+      "type": "object",
+      "required": [
+        "archived",
+        "created_at_ms",
+        "display_name",
+        "last_opened_at_ms",
+        "workspace_root",
+        "workspace_uid"
+      ],
+      "properties": {
+        "archived": {
+          "type": "boolean"
+        },
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "last_opened_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "workspace_root": {
+          "type": "string"
+        },
+        "workspace_uid": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

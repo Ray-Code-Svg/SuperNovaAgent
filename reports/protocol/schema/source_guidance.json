@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SourceGuidance",
+  "type": "object",
+  "required": [
+    "materialized_content",
+    "selected_sources",
+    "semantics",
+    "source_scope_enforcement"
+  ],
+  "properties": {
+    "materialized_content": {
+      "type": "boolean"
+    },
+    "selected_sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ReferenceSourceDirective"
+      }
+    },
+    "semantics": {
+      "type": "string"
+    },
+    "source_scope_enforcement": {
+      "type": "string"
+    },
+    "user_intent": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "definitions": {
+    "ReferenceSourceDirective": {
+      "type": "object",
+      "required": [
+        "include_mode",
+        "ref_id",
+        "selection_source",
+        "source_kind",
+        "usage"
+      ],
+      "properties": {
+        "include_mode": {
+          "type": "string"
+        },
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ref_id": {
+          "type": "string"
+        },
+        "selection_source": {
+          "type": "string"
+        },
+        "source_kind": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

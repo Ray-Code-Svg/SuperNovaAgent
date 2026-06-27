@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ArtifactTargetOption",
+  "type": "object",
+  "required": [
+    "artifact_types",
+    "label",
+    "save_strategies",
+    "target_dir",
+    "target_id",
+    "user_visible"
+  ],
+  "properties": {
+    "artifact_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "label": {
+      "type": "string"
+    },
+    "save_strategies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_dir": {
+      "type": "string"
+    },
+    "target_id": {
+      "type": "string"
+    },
+    "user_visible": {
+      "type": "boolean"
+    }
+  }
+}

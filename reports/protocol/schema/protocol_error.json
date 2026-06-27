@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProtocolErrorEnvelope",
+  "type": "object",
+  "required": [
+    "error",
+    "protocol_version",
+    "request_id",
+    "schema_version",
+    "workspace_id"
+  ],
+  "properties": {
+    "error": {
+      "$ref": "#/definitions/ProtocolError"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "workspace_id": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "ProtocolError": {
+      "type": "object",
+      "required": [
+        "code",
+        "detail",
+        "message",
+        "retryable",
+        "scope",
+        "status"
+      ],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "detail": true,
+        "message": {
+          "type": "string"
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "uint16",
+          "minimum": 0.0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+[package]
+name = "supernova-desktop-shell"
+version = "0.1.0"
+edition = "2021"
+description = "SuperNova desktop agent workbench"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+name = "supernova_desktop_shell_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", default-features = false, features = ["wry", "compression", "dynamic-acl", "tray-icon"] }
+product_runtime = { path = "../../crates/product_runtime" }
+windows = { version = "0.61.3", features = ["Win32_Foundation", "Win32_System_Com", "Win32_UI_Shell"] }
+tauri-plugin-opener = "2.5.4"

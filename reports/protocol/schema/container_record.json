@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ContainerRecord",
+  "type": "object",
+  "required": [
+    "badges",
+    "container_id",
+    "created_at_ms",
+    "last_active_at_ms",
+    "status",
+    "title",
+    "updated_at_ms",
+    "workspace_uid"
+  ],
+  "properties": {
+    "badges": {
+      "$ref": "#/definitions/ContainerBadges"
+    },
+    "container_id": {
+      "type": "string"
+    },
+    "context_policy": true,
+    "created_at_ms": {
+      "type": "integer",
+      "format": "uint128",
+      "minimum": 0.0
+    },
+    "default_model_config": true,
+    "last_active_at_ms": {
+      "type": "integer",
+      "format": "uint128",
+      "minimum": 0.0
+    },
+    "status": {
+      "$ref": "#/definitions/ContainerStatus"
+    },
+    "title": {
+      "type": "string"
+    },
+    "updated_at_ms": {
+      "type": "integer",
+      "format": "uint128",
+      "minimum": 0.0
+    },
+    "workspace_uid": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "ContainerBadges": {
+      "type": "object",
+      "required": [
+        "approval",
+        "artifact_ready",
+        "blocked",
+        "running",
+        "unread"
+      ],
+      "properties": {
+        "approval": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "artifact_ready": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "blocked": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "running": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "unread": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        }
+      }
+    },
+    "ContainerStatus": {
+      "type": "string",
+      "enum": [
+        "active",
+        "running",
+        "approval",
+        "blocked",
+        "archived",
+        "deleted"
+      ]
+    }
+  }
+}

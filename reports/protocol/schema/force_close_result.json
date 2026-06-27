@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ForceCloseResult",
+  "type": "object",
+  "required": [
+    "action",
+    "messages",
+    "status"
+  ],
+  "properties": {
+    "action": {
+      "type": "string"
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ContainerMessage"
+      }
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "ContainerMessage": {
+      "type": "object",
+      "required": [
+        "body_json",
+        "card_json",
+        "container_id",
+        "created_at_ms",
+        "lane",
+        "message_id",
+        "message_type",
+        "role",
+        "sort_key",
+        "source_kind",
+        "source_ref",
+        "status",
+        "updated_at_ms",
+        "workspace_uid"
+      ],
+      "properties": {
+        "body_json": true,
+        "body_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "card_json": true,
+        "chat_thread_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "container_id": {
+          "type": "string"
+        },
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "job_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lane": {
+          "$ref": "#/definitions/MessageLane"
+        },
+        "message_id": {
+          "type": "string"
+        },
+        "message_type": {
+          "$ref": "#/definitions/MessageType"
+        },
+        "role": {
+          "$ref": "#/definitions/MessageRole"
+        },
+        "sort_key": {
+          "type": "string"
+        },
+        "source_kind": {
+          "type": "string"
+        },
+        "source_ref": {
+          "type": "string"
+        },
+        "source_seq": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "status": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "updated_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "workspace_uid": {
+          "type": "string"
+        }
+      }
+    },
+    "MessageLane": {
+      "type": "string",
+      "enum": [
+        "chat",
+        "task",
+        "runtime"
+      ]
+    },
+    "MessageRole": {
+      "type": "string",
+      "enum": [
+        "user",
+        "assistant",
+        "agent",
+        "tool",
+        "system"
+      ]
+    },
+    "MessageType": {
+      "type": "string",
+      "enum": [
+        "text",
+        "reasoning",
+        "tool_call",
+        "tool_result",
+        "approval",
+        "artifact",
+        "phase",
+        "error"
+      ]
+    }
+  }
+}

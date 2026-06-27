@@ -1,0 +1,299 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UiCapabilityManifest",
+  "type": "object",
+  "required": [
+    "commands",
+    "composer_tokens",
+    "container_actions",
+    "context_config",
+    "model_config",
+    "settings",
+    "workspace_actions"
+  ],
+  "properties": {
+    "commands": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/UiCommandDescriptor"
+      }
+    },
+    "composer_tokens": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ComposerTokenDescriptor"
+      }
+    },
+    "container_actions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/UiActionDescriptor"
+      }
+    },
+    "context_config": {
+      "$ref": "#/definitions/ContextConfigDescriptor"
+    },
+    "model_config": {
+      "$ref": "#/definitions/ModelConfigDescriptor"
+    },
+    "settings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/UiActionDescriptor"
+      }
+    },
+    "workspace_actions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/UiActionDescriptor"
+      }
+    }
+  },
+  "definitions": {
+    "ComposerTokenDescriptor": {
+      "type": "object",
+      "required": [
+        "capability_id",
+        "label",
+        "token"
+      ],
+      "properties": {
+        "capability_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "ContextConfigDescriptor": {
+      "type": "object",
+      "required": [
+        "supports_compaction",
+        "supports_container_default_pack",
+        "supports_history_chat",
+        "supports_history_task"
+      ],
+      "properties": {
+        "supports_compaction": {
+          "type": "boolean"
+        },
+        "supports_container_default_pack": {
+          "type": "boolean"
+        },
+        "supports_history_chat": {
+          "type": "boolean"
+        },
+        "supports_history_task": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ModelConfig": {
+      "type": "object",
+      "required": [
+        "model",
+        "provider",
+        "reasoning_effort",
+        "strict_tools",
+        "thinking"
+      ],
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "reasoning_effort": {
+          "type": "string"
+        },
+        "strict_tools": {
+          "type": "boolean"
+        },
+        "thinking": {
+          "type": "string"
+        },
+        "token_budget": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0.0
+        }
+      }
+    },
+    "ModelConfigDescriptor": {
+      "type": "object",
+      "required": [
+        "active",
+        "advanced_defaults_collapsed",
+        "providers",
+        "reasoning_effort_options",
+        "strict_tools_description",
+        "strict_tools_label",
+        "thinking_options",
+        "token_budget_default",
+        "token_budget_max",
+        "token_budget_min",
+        "user_summary"
+      ],
+      "properties": {
+        "active": {
+          "$ref": "#/definitions/ModelConfig"
+        },
+        "advanced_defaults_collapsed": {
+          "type": "boolean"
+        },
+        "providers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModelProviderDescriptor"
+          }
+        },
+        "reasoning_effort_options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModelConfigOption"
+          }
+        },
+        "strict_tools_description": {
+          "type": "string"
+        },
+        "strict_tools_label": {
+          "type": "string"
+        },
+        "thinking_options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModelConfigOption"
+          }
+        },
+        "token_budget_default": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "token_budget_max": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "token_budget_min": {
+          "type": "integer",
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "user_summary": {
+          "type": "string"
+        }
+      }
+    },
+    "ModelConfigOption": {
+      "type": "object",
+      "required": [
+        "description",
+        "label",
+        "value"
+      ],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "ModelProviderDescriptor": {
+      "type": "object",
+      "required": [
+        "display_name",
+        "model_options",
+        "models",
+        "provider",
+        "supports_strict_tools",
+        "supports_thinking"
+      ],
+      "properties": {
+        "display_name": {
+          "type": "string"
+        },
+        "model_options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModelConfigOption"
+          }
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "provider": {
+          "type": "string"
+        },
+        "supports_strict_tools": {
+          "type": "boolean"
+        },
+        "supports_thinking": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UiActionDescriptor": {
+      "type": "object",
+      "required": [
+        "action_id",
+        "capability_id",
+        "label",
+        "side_effect"
+      ],
+      "properties": {
+        "action_id": {
+          "type": "string"
+        },
+        "capability_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "side_effect": {
+          "type": "string"
+        }
+      }
+    },
+    "UiCommandDescriptor": {
+      "type": "object",
+      "required": [
+        "capability_id",
+        "command_id",
+        "description",
+        "label"
+      ],
+      "properties": {
+        "capability_id": {
+          "type": "string"
+        },
+        "command_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

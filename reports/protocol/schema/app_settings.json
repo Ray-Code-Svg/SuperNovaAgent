@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppSettings",
+  "type": "object",
+  "required": [
+    "appearance",
+    "data_paths",
+    "provider_api"
+  ],
+  "properties": {
+    "appearance": {
+      "$ref": "#/definitions/AppearanceSettings"
+    },
+    "data_paths": {
+      "$ref": "#/definitions/DataPathSettings"
+    },
+    "provider_api": {
+      "$ref": "#/definitions/ProviderApiSettings"
+    }
+  },
+  "definitions": {
+    "AppearanceSettings": {
+      "type": "object",
+      "required": [
+        "language",
+        "theme"
+      ],
+      "properties": {
+        "language": {
+          "$ref": "#/definitions/DisplayLanguage"
+        },
+        "theme": {
+          "$ref": "#/definitions/DisplayTheme"
+        }
+      }
+    },
+    "DataPathSettings": {
+      "type": "object",
+      "required": [
+        "app_config_root",
+        "app_state_root",
+        "workspace_registry_path"
+      ],
+      "properties": {
+        "app_config_root": {
+          "type": "string"
+        },
+        "app_state_root": {
+          "type": "string"
+        },
+        "workspace_registry_path": {
+          "type": "string"
+        }
+      }
+    },
+    "DisplayLanguage": {
+      "type": "string",
+      "enum": [
+        "zh-CN",
+        "en-US"
+      ]
+    },
+    "DisplayTheme": {
+      "type": "string",
+      "enum": [
+        "light",
+        "dark"
+      ]
+    },
+    "ProviderApiRecord": {
+      "type": "object",
+      "required": [
+        "api_key_configured",
+        "provider"
+      ],
+      "properties": {
+        "api_base_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "api_key_configured": {
+          "type": "boolean"
+        },
+        "credential_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provider": {
+          "type": "string"
+        },
+        "token_usage_summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validation_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "ProviderApiSettings": {
+      "type": "object",
+      "required": [
+        "providers"
+      ],
+      "properties": {
+        "providers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProviderApiRecord"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ReferenceSourceDirective",
+  "type": "object",
+  "required": [
+    "include_mode",
+    "ref_id",
+    "selection_source",
+    "source_kind",
+    "usage"
+  ],
+  "properties": {
+    "include_mode": {
+      "type": "string"
+    },
+    "label": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ref_id": {
+      "type": "string"
+    },
+    "selection_source": {
+      "type": "string"
+    },
+    "source_kind": {
+      "type": "string"
+    },
+    "usage": {
+      "type": "string"
+    }
+  }
+}

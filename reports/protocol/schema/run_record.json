@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RunRecord",
+  "type": "object",
+  "required": [
+    "cancel_requested",
+    "container_id",
+    "run_id",
+    "run_kind",
+    "started_at_ms",
+    "status",
+    "updated_at_ms",
+    "worker_id",
+    "workspace_uid"
+  ],
+  "properties": {
+    "cancel_requested": {
+      "type": "boolean"
+    },
+    "chat_thread_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "container_id": {
+      "type": "string"
+    },
+    "error_message": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "heartbeat_at_ms": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "uint128",
+      "minimum": 0.0
+    },
+    "job_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "run_kind": {
+      "type": "string"
+    },
+    "started_at_ms": {
+      "type": "integer",
+      "format": "uint128",
+      "minimum": 0.0
+    },
+    "status": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updated_at_ms": {
+      "type": "integer",
+      "format": "uint128",
+      "minimum": 0.0
+    },
+    "worker_id": {
+      "type": "string"
+    },
+    "workspace_uid": {
+      "type": "string"
+    }
+  }
+}

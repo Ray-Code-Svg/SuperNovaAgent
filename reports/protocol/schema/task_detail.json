@@ -1,0 +1,513 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TaskDetail",
+  "type": "object",
+  "required": [
+    "approvals",
+    "artifacts",
+    "messages",
+    "receipts",
+    "task"
+  ],
+  "properties": {
+    "approvals": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ApprovalRecord"
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ArtifactRecord"
+      }
+    },
+    "destination_fulfilled": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ContainerMessage"
+      }
+    },
+    "receipts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/TaskReceiptRecord"
+      }
+    },
+    "selected_output_dir": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "task": {
+      "$ref": "#/definitions/TaskRecord"
+    }
+  },
+  "definitions": {
+    "ApprovalRecord": {
+      "type": "object",
+      "required": [
+        "approval_id",
+        "created_at_ms",
+        "preview",
+        "status",
+        "task_id"
+      ],
+      "properties": {
+        "approval_id": {
+          "type": "string"
+        },
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "draft_artifact": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TaskDraftArtifactRecord"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "operation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "preview": true,
+        "preview_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resolved_at_ms": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "status": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        }
+      }
+    },
+    "ArtifactRecord": {
+      "type": "object",
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "container_id",
+        "created_at_ms",
+        "status",
+        "title",
+        "verified"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "artifact_type": {
+          "type": "string"
+        },
+        "capability_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "container_id": {
+          "type": "string"
+        },
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "kind": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "receipt_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ContainerBadges": {
+      "type": "object",
+      "required": [
+        "approval",
+        "artifact_ready",
+        "blocked",
+        "running",
+        "unread"
+      ],
+      "properties": {
+        "approval": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "artifact_ready": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "blocked": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "running": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "unread": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        }
+      }
+    },
+    "ContainerMessage": {
+      "type": "object",
+      "required": [
+        "body_json",
+        "card_json",
+        "container_id",
+        "created_at_ms",
+        "lane",
+        "message_id",
+        "message_type",
+        "role",
+        "sort_key",
+        "source_kind",
+        "source_ref",
+        "status",
+        "updated_at_ms",
+        "workspace_uid"
+      ],
+      "properties": {
+        "body_json": true,
+        "body_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "card_json": true,
+        "chat_thread_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "container_id": {
+          "type": "string"
+        },
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "job_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lane": {
+          "$ref": "#/definitions/MessageLane"
+        },
+        "message_id": {
+          "type": "string"
+        },
+        "message_type": {
+          "$ref": "#/definitions/MessageType"
+        },
+        "role": {
+          "$ref": "#/definitions/MessageRole"
+        },
+        "sort_key": {
+          "type": "string"
+        },
+        "source_kind": {
+          "type": "string"
+        },
+        "source_ref": {
+          "type": "string"
+        },
+        "source_seq": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "status": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "updated_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "workspace_uid": {
+          "type": "string"
+        }
+      }
+    },
+    "MessageLane": {
+      "type": "string",
+      "enum": [
+        "chat",
+        "task",
+        "runtime"
+      ]
+    },
+    "MessageRole": {
+      "type": "string",
+      "enum": [
+        "user",
+        "assistant",
+        "agent",
+        "tool",
+        "system"
+      ]
+    },
+    "MessageType": {
+      "type": "string",
+      "enum": [
+        "text",
+        "reasoning",
+        "tool_call",
+        "tool_result",
+        "approval",
+        "artifact",
+        "phase",
+        "error"
+      ]
+    },
+    "TaskDraftArtifactRecord": {
+      "type": "object",
+      "required": [
+        "approval_id",
+        "container_id",
+        "content_format",
+        "content_text",
+        "created_at_ms",
+        "draft_id",
+        "status",
+        "task_id",
+        "updated_at_ms",
+        "workspace_uid"
+      ],
+      "properties": {
+        "approval_id": {
+          "type": "string"
+        },
+        "container_id": {
+          "type": "string"
+        },
+        "content_format": {
+          "type": "string"
+        },
+        "content_text": {
+          "type": "string"
+        },
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "draft_id": {
+          "type": "string"
+        },
+        "operation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "preview_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "updated_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "workspace_uid": {
+          "type": "string"
+        }
+      }
+    },
+    "TaskReceiptRecord": {
+      "type": "object",
+      "required": [
+        "artifact_paths",
+        "created_at_ms",
+        "kind",
+        "receipt_id",
+        "status",
+        "task_id"
+      ],
+      "properties": {
+        "artifact_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "capability_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "kind": {
+          "type": "string"
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "receipt_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "task_id": {
+          "type": "string"
+        }
+      }
+    },
+    "TaskRecord": {
+      "type": "object",
+      "required": [
+        "badges",
+        "container_id",
+        "created_at_ms",
+        "goal",
+        "status",
+        "task_id",
+        "title",
+        "updated_at_ms"
+      ],
+      "properties": {
+        "badges": {
+          "$ref": "#/definitions/ContainerBadges"
+        },
+        "container_id": {
+          "type": "string"
+        },
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "goal": {
+          "type": "string"
+        },
+        "job_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "updated_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        }
+      }
+    }
+  }
+}

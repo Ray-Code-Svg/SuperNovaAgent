@@ -1,0 +1,38 @@
+pub mod artifact;
+pub mod chat;
+pub mod container;
+pub mod context_pack;
+pub mod diagnostics;
+pub mod envelope;
+pub mod error;
+pub mod guidance;
+pub mod model_config;
+pub mod run;
+pub mod runtime;
+pub mod settings;
+pub mod stream;
+pub mod task;
+pub mod ui_capability;
+pub mod workspace;
+
+pub use artifact::*;
+pub use chat::*;
+pub use container::*;
+pub use context_pack::*;
+pub use diagnostics::*;
+pub use envelope::*;
+pub use error::*;
+pub use guidance::*;
+pub use model_config::*;
+pub use run::*;
+pub use runtime::*;
+pub use settings::*;
+pub use stream::*;
+pub use task::*;
+pub use ui_capability::*;
+pub use workspace::*;
+
+pub const PROTOCOL_VERSION: &str = "supernova.local_runtime.v1";
+pub const RESPONSE_SCHEMA_VERSION: &str = "supernova.protocol.response.v1";
+pub const ERROR_SCHEMA_VERSION: &str = "supernova.protocol.error.v1";
+pub const EVENT_SCHEMA_VERSION: &str = "supernova.protocol.event.v1";

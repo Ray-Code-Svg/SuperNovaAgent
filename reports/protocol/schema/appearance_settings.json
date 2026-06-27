@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AppearanceSettings",
+  "type": "object",
+  "required": [
+    "language",
+    "theme"
+  ],
+  "properties": {
+    "language": {
+      "$ref": "#/definitions/DisplayLanguage"
+    },
+    "theme": {
+      "$ref": "#/definitions/DisplayTheme"
+    }
+  },
+  "definitions": {
+    "DisplayLanguage": {
+      "type": "string",
+      "enum": [
+        "zh-CN",
+        "en-US"
+      ]
+    },
+    "DisplayTheme": {
+      "type": "string",
+      "enum": [
+        "light",
+        "dark"
+      ]
+    }
+  }
+}

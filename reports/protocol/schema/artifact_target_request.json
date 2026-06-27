@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ArtifactTargetRequest",
+  "type": "object",
+  "required": [
+    "artifact_type",
+    "container_id",
+    "save_strategy"
+  ],
+  "properties": {
+    "artifact_type": {
+      "type": "string"
+    },
+    "container_id": {
+      "type": "string"
+    },
+    "save_strategy": {
+      "type": "string"
+    },
+    "target_dir": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

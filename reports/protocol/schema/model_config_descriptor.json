@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ModelConfigDescriptor",
+  "type": "object",
+  "required": [
+    "active",
+    "advanced_defaults_collapsed",
+    "providers",
+    "reasoning_effort_options",
+    "strict_tools_description",
+    "strict_tools_label",
+    "thinking_options",
+    "token_budget_default",
+    "token_budget_max",
+    "token_budget_min",
+    "user_summary"
+  ],
+  "properties": {
+    "active": {
+      "$ref": "#/definitions/ModelConfig"
+    },
+    "advanced_defaults_collapsed": {
+      "type": "boolean"
+    },
+    "providers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ModelProviderDescriptor"
+      }
+    },
+    "reasoning_effort_options": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ModelConfigOption"
+      }
+    },
+    "strict_tools_description": {
+      "type": "string"
+    },
+    "strict_tools_label": {
+      "type": "string"
+    },
+    "thinking_options": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ModelConfigOption"
+      }
+    },
+    "token_budget_default": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "token_budget_max": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "token_budget_min": {
+      "type": "integer",
+      "format": "uint64",
+      "minimum": 0.0
+    },
+    "user_summary": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "ModelConfig": {
+      "type": "object",
+      "required": [
+        "model",
+        "provider",
+        "reasoning_effort",
+        "strict_tools",
+        "thinking"
+      ],
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "reasoning_effort": {
+          "type": "string"
+        },
+        "strict_tools": {
+          "type": "boolean"
+        },
+        "thinking": {
+          "type": "string"
+        },
+        "token_budget": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0.0
+        }
+      }
+    },
+    "ModelConfigOption": {
+      "type": "object",
+      "required": [
+        "description",
+        "label",
+        "value"
+      ],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "ModelProviderDescriptor": {
+      "type": "object",
+      "required": [
+        "display_name",
+        "model_options",
+        "models",
+        "provider",
+        "supports_strict_tools",
+        "supports_thinking"
+      ],
+      "properties": {
+        "display_name": {
+          "type": "string"
+        },
+        "model_options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModelConfigOption"
+          }
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "provider": {
+          "type": "string"
+        },
+        "supports_strict_tools": {
+          "type": "boolean"
+        },
+        "supports_thinking": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ArtifactDestinationGuidance",
+  "type": "object",
+  "required": [
+    "enforcement",
+    "materialized_artifact",
+    "selected_output_dir",
+    "semantics"
+  ],
+  "properties": {
+    "enforcement": {
+      "type": "string"
+    },
+    "label": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "materialized_artifact": {
+      "type": "boolean"
+    },
+    "selected_output_dir": {
+      "type": "string"
+    },
+    "semantics": {
+      "type": "string"
+    }
+  }
+}

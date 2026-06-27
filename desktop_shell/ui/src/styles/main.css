@@ -1,0 +1,70 @@
+@import "../workbench_v2/styles/fluentTheme.css";
+@import "../workbench_v2/styles/layout.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--sn-app-bg);
+  color: var(--sn-text);
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0;
+}
+
+button,
+textarea,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+pre {
+  margin: 0;
+}
+
+.mono {
+  font-family: "JetBrains Mono", "IBM Plex Mono", Consolas, monospace;
+}
+
+.small {
+  font-size: 12px;
+}
+
+.muted {
+  color: var(--sn-muted);
+}
+
+::selection {
+  background: rgba(0, 120, 212, 0.22);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(246, 247, 250, 0.86);
+  border-radius: 999px;
+  background: rgba(96, 110, 128, 0.44);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 120, 212, 0.62);
+}

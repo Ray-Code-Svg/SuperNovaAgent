@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TaskApprovalActionRequest",
+  "type": "object",
+  "properties": {
+    "approval_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "draft_content": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "instruction": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

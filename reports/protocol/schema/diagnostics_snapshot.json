@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DiagnosticsSnapshot",
+  "type": "object",
+  "required": [
+    "app_config_root",
+    "app_state_root",
+    "kernel_layer",
+    "protocol_version",
+    "runtime_layer",
+    "runtime_status",
+    "workspace_id"
+  ],
+  "properties": {
+    "app_config_root": {
+      "type": "string"
+    },
+    "app_state_root": {
+      "type": "string"
+    },
+    "kernel_layer": {
+      "type": "string"
+    },
+    "last_error": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "runtime_layer": {
+      "type": "string"
+    },
+    "runtime_status": {
+      "type": "string"
+    },
+    "workspace_id": {
+      "type": "string"
+    }
+  }
+}

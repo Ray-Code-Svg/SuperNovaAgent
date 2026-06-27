@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SourceCandidateRequest",
+  "type": "object",
+  "properties": {
+    "limit": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "uint",
+      "minimum": 0.0
+    },
+    "q": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

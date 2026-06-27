@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "EYVP2kX18Xs=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\86188\\Desktop\\Langchain学习\\SuperNovaAgent\\office_worker\\SuperNova.OfficeWorker\\SuperNova.OfficeWorker.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\86188\\.nuget\\packages\\documentformat.openxml\\3.5.1\\documentformat.openxml.3.5.1.nupkg.sha512",
+    "C:\\Users\\86188\\.nuget\\packages\\documentformat.openxml.framework\\3.5.1\\documentformat.openxml.framework.3.5.1.nupkg.sha512",
+    "C:\\Users\\86188\\.nuget\\packages\\system.io.packaging\\8.0.1\\system.io.packaging.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

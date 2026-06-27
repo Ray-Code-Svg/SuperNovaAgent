@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ModelConfig",
+  "type": "object",
+  "required": [
+    "model",
+    "provider",
+    "reasoning_effort",
+    "strict_tools",
+    "thinking"
+  ],
+  "properties": {
+    "model": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "reasoning_effort": {
+      "type": "string"
+    },
+    "strict_tools": {
+      "type": "boolean"
+    },
+    "thinking": {
+      "type": "string"
+    },
+    "token_budget": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "uint64",
+      "minimum": 0.0
+    }
+  }
+}

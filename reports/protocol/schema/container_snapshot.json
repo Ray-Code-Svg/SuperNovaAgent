@@ -1,0 +1,453 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ContainerSnapshot",
+  "type": "object",
+  "required": [
+    "chat_threads",
+    "container",
+    "messages",
+    "tasks"
+  ],
+  "properties": {
+    "chat_threads": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ChatThreadRecord"
+      }
+    },
+    "container": {
+      "$ref": "#/definitions/ContainerRecord"
+    },
+    "context_pack": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/ContextPack"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ContainerMessage"
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/TaskRecord"
+      }
+    }
+  },
+  "definitions": {
+    "ChatThreadRecord": {
+      "type": "object",
+      "required": [
+        "chat_thread_id",
+        "container_id",
+        "created_at_ms",
+        "title",
+        "updated_at_ms"
+      ],
+      "properties": {
+        "chat_thread_id": {
+          "type": "string"
+        },
+        "container_id": {
+          "type": "string"
+        },
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "title": {
+          "type": "string"
+        },
+        "updated_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        }
+      }
+    },
+    "ContainerBadges": {
+      "type": "object",
+      "required": [
+        "approval",
+        "artifact_ready",
+        "blocked",
+        "running",
+        "unread"
+      ],
+      "properties": {
+        "approval": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "artifact_ready": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "blocked": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "running": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "unread": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        }
+      }
+    },
+    "ContainerMessage": {
+      "type": "object",
+      "required": [
+        "body_json",
+        "card_json",
+        "container_id",
+        "created_at_ms",
+        "lane",
+        "message_id",
+        "message_type",
+        "role",
+        "sort_key",
+        "source_kind",
+        "source_ref",
+        "status",
+        "updated_at_ms",
+        "workspace_uid"
+      ],
+      "properties": {
+        "body_json": true,
+        "body_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "card_json": true,
+        "chat_thread_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "container_id": {
+          "type": "string"
+        },
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "job_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lane": {
+          "$ref": "#/definitions/MessageLane"
+        },
+        "message_id": {
+          "type": "string"
+        },
+        "message_type": {
+          "$ref": "#/definitions/MessageType"
+        },
+        "role": {
+          "$ref": "#/definitions/MessageRole"
+        },
+        "sort_key": {
+          "type": "string"
+        },
+        "source_kind": {
+          "type": "string"
+        },
+        "source_ref": {
+          "type": "string"
+        },
+        "source_seq": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "status": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "updated_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "workspace_uid": {
+          "type": "string"
+        }
+      }
+    },
+    "ContainerRecord": {
+      "type": "object",
+      "required": [
+        "badges",
+        "container_id",
+        "created_at_ms",
+        "last_active_at_ms",
+        "status",
+        "title",
+        "updated_at_ms",
+        "workspace_uid"
+      ],
+      "properties": {
+        "badges": {
+          "$ref": "#/definitions/ContainerBadges"
+        },
+        "container_id": {
+          "type": "string"
+        },
+        "context_policy": true,
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "default_model_config": true,
+        "last_active_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "status": {
+          "$ref": "#/definitions/ContainerStatus"
+        },
+        "title": {
+          "type": "string"
+        },
+        "updated_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "workspace_uid": {
+          "type": "string"
+        }
+      }
+    },
+    "ContainerStatus": {
+      "type": "string",
+      "enum": [
+        "active",
+        "running",
+        "approval",
+        "blocked",
+        "archived",
+        "deleted"
+      ]
+    },
+    "ContextPack": {
+      "type": "object",
+      "required": [
+        "auto_policy",
+        "container_id",
+        "context_pack_id",
+        "excluded_items",
+        "selected_items"
+      ],
+      "properties": {
+        "auto_policy": {
+          "$ref": "#/definitions/ContextPackAutoPolicy"
+        },
+        "container_id": {
+          "type": "string"
+        },
+        "context_pack_id": {
+          "type": "string"
+        },
+        "estimated_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "excluded_items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContextPackItem"
+          }
+        },
+        "selected_items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContextPackItem"
+          }
+        },
+        "summary_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "ContextPackAutoPolicy": {
+      "type": "object",
+      "required": [
+        "include_recent_chat_turns",
+        "include_recent_tasks",
+        "prefer_summaries"
+      ],
+      "properties": {
+        "include_recent_chat_turns": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0.0
+        },
+        "include_recent_tasks": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0.0
+        },
+        "prefer_summaries": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ContextPackItem": {
+      "type": "object",
+      "required": [
+        "include_mode",
+        "item_kind",
+        "priority",
+        "ref_id"
+      ],
+      "properties": {
+        "include_mode": {
+          "type": "string"
+        },
+        "item_kind": {
+          "type": "string"
+        },
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "priority": {
+          "type": "integer",
+          "format": "uint8",
+          "minimum": 0.0
+        },
+        "ref_id": {
+          "type": "string"
+        }
+      }
+    },
+    "MessageLane": {
+      "type": "string",
+      "enum": [
+        "chat",
+        "task",
+        "runtime"
+      ]
+    },
+    "MessageRole": {
+      "type": "string",
+      "enum": [
+        "user",
+        "assistant",
+        "agent",
+        "tool",
+        "system"
+      ]
+    },
+    "MessageType": {
+      "type": "string",
+      "enum": [
+        "text",
+        "reasoning",
+        "tool_call",
+        "tool_result",
+        "approval",
+        "artifact",
+        "phase",
+        "error"
+      ]
+    },
+    "TaskRecord": {
+      "type": "object",
+      "required": [
+        "badges",
+        "container_id",
+        "created_at_ms",
+        "goal",
+        "status",
+        "task_id",
+        "title",
+        "updated_at_ms"
+      ],
+      "properties": {
+        "badges": {
+          "$ref": "#/definitions/ContainerBadges"
+        },
+        "container_id": {
+          "type": "string"
+        },
+        "created_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        },
+        "goal": {
+          "type": "string"
+        },
+        "job_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "updated_at_ms": {
+          "type": "integer",
+          "format": "uint128",
+          "minimum": 0.0
+        }
+      }
+    }
+  }
+}

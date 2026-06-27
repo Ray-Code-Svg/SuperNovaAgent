@@ -1,0 +1,18 @@
+[package]
+name = "supernova-process-kernel"
+version = "0.1.0"
+edition = "2021"
+description = "SuperNova V2 Rust Process Kernel MVP"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+name = "supernova_process_kernel"
+path = "src/lib.rs"
+
+[dependencies]
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+ureq = { version = "2", features = ["json"] }
+pdf-extract = "0.10.0"

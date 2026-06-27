@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProviderApiTestResult",
+  "type": "object",
+  "required": [
+    "api_key_configured",
+    "checked_by",
+    "live_check_performed",
+    "message",
+    "provider",
+    "status"
+  ],
+  "properties": {
+    "api_base_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "api_key_configured": {
+      "type": "boolean"
+    },
+    "checked_by": {
+      "type": "string"
+    },
+    "credential_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "live_check_performed": {
+      "type": "boolean"
+    },
+    "message": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}

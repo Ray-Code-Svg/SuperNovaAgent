@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TaskRecord",
+  "type": "object",
+  "required": [
+    "badges",
+    "container_id",
+    "created_at_ms",
+    "goal",
+    "status",
+    "task_id",
+    "title",
+    "updated_at_ms"
+  ],
+  "properties": {
+    "badges": {
+      "$ref": "#/definitions/ContainerBadges"
+    },
+    "container_id": {
+      "type": "string"
+    },
+    "created_at_ms": {
+      "type": "integer",
+      "format": "uint128",
+      "minimum": 0.0
+    },
+    "goal": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "updated_at_ms": {
+      "type": "integer",
+      "format": "uint128",
+      "minimum": 0.0
+    }
+  },
+  "definitions": {
+    "ContainerBadges": {
+      "type": "object",
+      "required": [
+        "approval",
+        "artifact_ready",
+        "blocked",
+        "running",
+        "unread"
+      ],
+      "properties": {
+        "approval": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "artifact_ready": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "blocked": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "running": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "unread": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        }
+      }
+    }
+  }
+}

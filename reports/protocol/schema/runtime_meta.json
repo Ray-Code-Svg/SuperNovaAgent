@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RuntimeMeta",
+  "type": "object",
+  "required": [
+    "kernel_layer",
+    "python_main_path",
+    "runtime_layer",
+    "supports",
+    "transport",
+    "workspace_id",
+    "workspace_root"
+  ],
+  "properties": {
+    "capability_manifest_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "kernel_layer": {
+      "type": "string"
+    },
+    "python_main_path": {
+      "type": "boolean"
+    },
+    "runtime_layer": {
+      "type": "string"
+    },
+    "supports": {
+      "$ref": "#/definitions/RuntimeSupports"
+    },
+    "transport": {
+      "type": "string"
+    },
+    "workspace_id": {
+      "type": "string"
+    },
+    "workspace_root": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "RuntimeSupports": {
+      "type": "object",
+      "required": [
+        "appdata_state",
+        "chat_truth",
+        "containers",
+        "process_truth",
+        "sse",
+        "workspace_switch"
+      ],
+      "properties": {
+        "appdata_state": {
+          "type": "boolean"
+        },
+        "chat_truth": {
+          "type": "boolean"
+        },
+        "containers": {
+          "type": "boolean"
+        },
+        "process_truth": {
+          "type": "boolean"
+        },
+        "sse": {
+          "type": "boolean"
+        },
+        "workspace_switch": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

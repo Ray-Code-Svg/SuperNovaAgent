@@ -1,0 +1,14 @@
+[workspace]
+members = [
+    "process_kernel",
+    "desktop_shell/src-tauri",
+    "crates/local_runtime_protocol",
+    "crates/product_runtime",
+    "crates/protocol_codegen",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+license = "Apache-2.0"
+publish = false
